@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<K4a_manipulator>
+	<group>
+		<Local_trans_Coarse>-285.297, 0, -812.421</Local_trans_Coarse>
+		<Local_trans_Fine>0, 0, 0</Local_trans_Fine>
+		<Local_rot_Coarse_X>0</Local_rot_Coarse_X>
+		<Local_rot_Fine_X>0</Local_rot_Fine_X>
+		<Local_rot_Coarse_Y>0</Local_rot_Coarse_Y>
+		<Local_rot_Fine_Y>0</Local_rot_Fine_Y>
+		<Local_rot_Coarse_Z>0</Local_rot_Coarse_Z>
+		<Local_rot_Fine_Z>0</Local_rot_Fine_Z>
+	</group>
+</K4a_manipulator>
