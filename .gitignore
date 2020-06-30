@@ -32,9 +32,7 @@ xcuserdata
 *.sdf
 *.opensdf
 *.suo
-*.exe
 *.sln
-*.dll
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
