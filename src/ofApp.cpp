@@ -7,10 +7,10 @@ void ofApp::setup(){
     panel.setup("Controls", "settings.xml");
 	panel.add(useSceneShader.set("Scene shader", true));
 	panel.add(useTexShader.set("Texture shader", true));
-    panel.add(drawWireframe.set("Draw wireframe", false));
     panel.add(drawAxis.set("Draw Axis", false));
 	panel.add(openClDevice.set("openCL Device", 2,0,3));
 	panel.add(OSCPort.set("OSC Port", 1234, 1000, 20000));
+	panel.add(drawMode.set("draw mode", 0, 0, 2));
     panel.loadFromFile("settings.xml");
 
 
@@ -74,8 +74,17 @@ void ofApp::setup(){
 
 	shaderControls.setPosition(panel.getPosition().x + panel.getWidth() + 20, panel.getPosition().y);
 
+	matrixPanel.setup("K4a manipulator", "manipulations.xml");
+
+	matrixControls.setup("Geometry offset", false);
+
+	matrixPanel.add(matrixControls.params);
+	matrixPanel.loadFromFile("manipulations.xml");
+	matrixPanel.setPosition(shaderControls.getPosition().x + shaderControls.getWidth() + 20, shaderControls.getPosition().y);
+
     cam.setFarClip(100000);
-    cam.setNearClip(0);
+    //cam.setNearClip(-100);
+	//cam.setDistance(-100);
 
 	cout << "listening for osc messages on port " << OSCPort << "\n";
 	receiver.setup(OSCPort);
@@ -83,7 +92,10 @@ void ofApp::setup(){
 	finalShader.load("shaders/sceneShader.vert", "shaders/sceneShader.frag");
 	texShader.load("shaders/texShader.vert", "shaders/texShader.frag");
 
-	texShaderFbo.allocate(512, 424, GL_RGBA);
+	texShaderFboPing.allocate(512, 424, GL_RGBA);
+	texShaderFboPong.allocate(512, 424, GL_RGBA);
+
+	
 }
 
 //--------------------------------------------------------------
@@ -91,14 +103,14 @@ void ofApp::update(){
     
     if(hasKinect){
         kinect->update();
-
+		kinect->setPointCloudTransformationMatrix(matrixControls.getDrawMatrix());
         if (kinect->isFrameNew())
         {
         texRGBRegistered.loadData(kinect->getRegisteredPixels());
 
 		if (useTexShader)
 		{
-			texShaderFbo.begin();
+			texShaderFboPing.begin();
 			ofClear(0, 0, 0, 0);
 			texShader.begin();
 			texShader.setUniform1i("mode", texShaderMode);
@@ -112,7 +124,7 @@ void ofApp::update(){
 			}
 			texRGBRegistered.draw(0, 0);
 			texShader.end();
-			texShaderFbo.end();
+			texShaderFboPing.end();
 		}
         }
     }
@@ -181,22 +193,28 @@ void ofApp::draw(){
     if (hasKinect) {
 		if (useTexShader)
 		{
-			texShaderFbo.getTexture().bind();
+			texShaderFboPing.getTexture().bind();
 		}
 		else {
 			texRGBRegistered.bind();
 		}
         
-        
-        if (drawWireframe) {
-            kinect->getPointCloud().drawWireframe();
-        }
-        else{
-            kinect->getPointCloud().draw();
-        }
+		switch (drawMode)
+		{
+		case 0:
+			kinect->getPointCloud().draw();
+			break;
+		case 1:
+			kinect->getPointCloud().drawWireframe();
+			break;
+		case 2:
+			kinect->getPointCloud().drawVertices();
+			break;
+		}
+ 
 		if (useTexShader)
 		{
-			texShaderFbo.getTexture().unbind();
+			texShaderFboPing.getTexture().unbind();
 
 		}
 		else {
@@ -217,6 +235,7 @@ void ofApp::draw(){
     
     panel.draw();
 	shaderControls.draw();
+	matrixPanel.draw();
 
 }
 

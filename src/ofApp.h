@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofxKinectV2.h"
+#include "matrixManipulator.h"
 
 #include "ofxOsc.h"
 
@@ -29,12 +30,10 @@ class ofApp : public ofBaseApp{
     
 	ofShader finalShader;
 	ofShader texShader;
-	ofFbo texShaderFbo;
+	ofFbo texShaderFboPing, texShaderFboPong;
 
-    ofPlanePrimitive plane;
-    ofVideoGrabber grabber;
+
     ofEasyCam cam;
-    ofMesh planeMesh;
     int width, height;
     
 	ofParameter<bool> useSceneShader;
@@ -58,7 +57,8 @@ class ofApp : public ofBaseApp{
 	ofxPanel shaderControls;
 	ofParameter<int> OSCPort;
 	ofParameter<int> openClDevice;
-    ofParameter<bool> drawWireframe, drawAxis;
+    ofParameter<bool> drawAxis;
+	ofParameter<int> drawMode;
     
    // bool useShader;
     ofxPanel panel;
@@ -74,5 +74,8 @@ class ofApp : public ofBaseApp{
     ofTexture texRGBRegistered;
 
 	ofxOscReceiver receiver;
+
+	matrixManipulator matrixControls;
+	ofxPanel matrixPanel;
 
 };
