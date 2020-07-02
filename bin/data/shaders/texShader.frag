@@ -1,6 +1,7 @@
 #version 150
 
 uniform sampler2DRect tex0;
+uniform sampler2DRect prevTexture;
 
 uniform int mode;
 uniform float FloatFrag1;
@@ -20,6 +21,6 @@ void main (void)
 {
     
     vec2 texCoord = vec2(varyingtexcoord.x , varyingtexcoord.y);
-    vec4 col = texture(tex0,texCoord);
+    vec4 col = texture(prevTexture,texCoord) + (texture(tex0, texCoord) * FloatFrag1) ;
     outputColor.rgba = col.rgba;
 }

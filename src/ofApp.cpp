@@ -7,6 +7,7 @@ void ofApp::setup(){
     panel.setup("Controls", "settings.xml");
 	panel.add(useSceneShader.set("Scene shader", true));
 	panel.add(useTexShader.set("Texture shader", true));
+	panel.add(nPasses.set("Shader passes", 2, 0, 5));
     panel.add(drawAxis.set("Draw Axis", false));
 	panel.add(openClDevice.set("openCL Device", 2,0,3));
 	panel.add(OSCPort.set("OSC Port", 1234, 1000, 20000));
@@ -92,9 +93,9 @@ void ofApp::setup(){
 	finalShader.load("shaders/sceneShader.vert", "shaders/sceneShader.frag");
 	texShader.load("shaders/texShader.vert", "shaders/texShader.frag");
 
-	texShaderFboPing.allocate(512, 424, GL_RGBA);
-	texShaderFboPong.allocate(512, 424, GL_RGBA);
-
+	
+	output.allocate(512, 424, GL_RGBA);
+	pingPong.allocate(512, 424, GL_RGBA);
 	
 }
 
@@ -110,21 +111,38 @@ void ofApp::update(){
 
 		if (useTexShader)
 		{
-			texShaderFboPing.begin();
-			ofClear(0, 0, 0, 0);
-			texShader.begin();
-			texShader.setUniform1i("mode", texShaderMode);
-			texShader.setUniform1f("time", ofGetElapsedTimef());
-			for (int i = 0; i < 6; i++) {
-				texShader.setUniform1f("FloatVert" + ofToString(i + 1), floatsVertTexture[i]);
-			}
-
-			for (int i = 0; i < 6; i++) {
-				texShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragTexture[i]);
-			}
+			pingPong.clear();
+			pingPong.src->begin();
 			texRGBRegistered.draw(0, 0);
-			texShader.end();
-			texShaderFboPing.end();
+			pingPong.src->end();
+
+			
+
+			for (int i = 0; i < nPasses; i++) {
+				pingPong.dst->begin();
+				texShader.begin();
+				texShader.setUniformTexture("prevTexture", pingPong.src->getTexture(), 0);
+				texShader.setUniformTexture("tex0", output.getTexture(), 1);
+				texShader.setUniform1i("mode", texShaderMode);
+				texShader.setUniform1f("time", ofGetElapsedTimef());
+				for (int i = 0; i < 6; i++) {
+					texShader.setUniform1f("FloatVert" + ofToString(i + 1), floatsVertTexture[i]);
+				}
+
+				for (int i = 0; i < 6; i++) {
+					texShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragTexture[i]);
+				}
+				pingPong.src->draw(0, 0); // draw the source texture here!!!
+				texShader.end();
+				pingPong.dst->end();
+				pingPong.swap();
+			}
+			pingPong.swap();
+
+			output.begin();
+			ofClear(0, 0, 0, 0);
+			pingPong.src->getTexture().draw(0, 0);
+			output.end();
 		}
         }
     }
@@ -193,7 +211,8 @@ void ofApp::draw(){
     if (hasKinect) {
 		if (useTexShader)
 		{
-			texShaderFboPing.getTexture().bind();
+			pingPong.src->getTexture().bind();
+			
 		}
 		else {
 			texRGBRegistered.bind();
@@ -214,7 +233,7 @@ void ofApp::draw(){
  
 		if (useTexShader)
 		{
-			texShaderFboPing.getTexture().unbind();
+			pingPong.src->getTexture().unbind();
 
 		}
 		else {
