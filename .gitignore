@@ -10,9 +10,6 @@ Release*/
 *.pyc
 .svn/
 
-#audio
-*.mp3
-
 
 #XCode
 *.pbxuser
