@@ -183,7 +183,7 @@ void ofApp::update(){
 			sceneShaderMode = m.getArgAsInt(0);
 		}
 		if (m.getAddress() == "/meshMode") {
-			sceneShaderMode = m.getArgAsInt(0);
+			drawMode = m.getArgAsInt(0);
 		}
 		for (int i = 0; i < 6; i++)
 		{
