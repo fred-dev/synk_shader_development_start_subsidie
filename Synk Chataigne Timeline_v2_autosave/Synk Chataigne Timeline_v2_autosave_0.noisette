@@ -1,0 +1,4568 @@
+{
+  "metaData": {
+    "version": "1.7.4",
+    "versionNumber": 67332
+  },
+  "projectSettings": {
+    "containers": {
+      "dashboardSettings": {
+      }
+    }
+  },
+  "layout": {
+    "mainLayout": {
+      "type": 1,
+      "width": 1920,
+      "height": 1037,
+      "direction": 2,
+      "shifters": [
+        {
+          "type": 1,
+          "width": 1920,
+          "height": 1037,
+          "direction": 1,
+          "shifters": [
+            {
+              "type": 0,
+              "width": 204,
+              "height": 1037,
+              "currentContent": "Inspector",
+              "tabs": [
+                {
+                  "name": "Inspector"
+                }
+              ]
+            },
+            {
+              "type": 0,
+              "width": 175,
+              "height": 1037,
+              "currentContent": "Modules",
+              "tabs": [
+                {
+                  "name": "Modules"
+                }
+              ]
+            },
+            {
+              "type": 0,
+              "width": 1529,
+              "height": 1037,
+              "currentContent": "Sequence Editor",
+              "tabs": [
+                {
+                  "name": "Sequence Editor"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "windows": null
+  },
+  "modules": {
+    "items": [
+      {
+        "niceName": "OSC Out",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+              "editorIsCollapsed": true
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": "127.0.0.1",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 1100,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            },
+            "pass_through": {
+            }
+          }
+        },
+        "templates": {
+          "editorIsCollapsed": true
+        },
+        "values": {
+        }
+      },
+      {
+        "niceName": "Sound Card",
+        "type": "Sound Card",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "monitor": {
+            },
+            "fftAnalysis": {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/enabled"
+                }
+              ],
+              "editorIsCollapsed": true
+            }
+          }
+        },
+        "analyzer": {
+          "parameters": [
+            {
+              "value": false,
+              "controlAddress": "/enabled"
+            }
+          ],
+          "editorIsCollapsed": true
+        }
+      }
+    ]
+  },
+  "sequences": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": 5.0,
+            "controlAddress": "/listSize"
+          },
+          {
+            "value": 658.1599731445313,
+            "controlAddress": "/totalTime"
+          },
+          {
+            "value": 0.0,
+            "controlAddress": "/viewStartTime"
+          },
+          {
+            "value": 658.1519775390625,
+            "controlAddress": "/viewEndTime"
+          }
+        ],
+        "niceName": "Sequence",
+        "type": "Sequence",
+        "layers": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Shader Mode",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0.0,
+                        10.0
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        10
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                    "items": [
+                      {
+                        "niceName": "Convert To Integer",
+                        "type": "Convert To Integer",
+                        "filterParams": {
+                          "parameters": [
+                            {
+                              "value": "",
+                              "controlAddress": "/retargetComponent"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/texShaderMode",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Integer",
+                                "param": {
+                                  "value": 0,
+                                  "hexMode": false,
+                                  "controlAddress": "/sequences/sequence/layers/texShaderMode/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": true,
+                  "controlAddress": "/alwaysUpdate"
+                },
+                {
+                  "value": true,
+                  "controlAddress": "/sendOnSeek"
+                },
+                {
+                  "value": "Do not send",
+                  "controlAddress": "/recordSendMode"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 1",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/0",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag1/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 2",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/1",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag2/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 3",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/2",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag3/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 4",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    },
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.1820621192455292,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key 1",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": true,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/3",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag4/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": true,
+                  "controlAddress": "/alwaysUpdate"
+                },
+                {
+                  "value": true,
+                  "controlAddress": "/sendOnSeek"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 5",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    },
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key 1",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    },
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.4733614921569824,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key 2",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/4",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag5/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Frag 6",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragtex/5",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texFrag6/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 1",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/0",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert1/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 2",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/1",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert2/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 3",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/2",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert3/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 4",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/3",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert4/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 29,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 5",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/4",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert5/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Tex Vert 6",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertTex/5",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/texVert6/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Shader mode",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0.0,
+                        10.0
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        10
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                    "items": [
+                      {
+                        "niceName": "Convert To Integer",
+                        "type": "Convert To Integer",
+                        "filterParams": {
+                          "parameters": [
+                            {
+                              "value": "",
+                              "controlAddress": "/retargetComponent"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/sceneShaderMode",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Integer",
+                                "param": {
+                                  "value": 0,
+                                  "hexMode": false,
+                                  "controlAddress": "/sequences/sequence/layers/sceneShaderMode/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 1",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/0",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag1/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 2",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/1",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag2/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 3",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/2",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag3/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 4",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/3",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag4/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 5",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/4",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag5/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Frag 6",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatFragScene/5",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneFrag6/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 1",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                    "editorIsCollapsed": true
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/0",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert1/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 2",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/1",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert2/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 3",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/2",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert3/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 4",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/3",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert4/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 5",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/4",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert5/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Scene Vert 6",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 0.0,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0,
+                        1
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Linear",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key",
+                      "containers": {
+                        "easing": {
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/floatVertScene/5",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Float",
+                                "param": {
+                                  "value": 0.0,
+                                  "controlAddress": "/sequences/sequence/layers/sceneVert6/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 97.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 129,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 1.937984466552734,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Mesh Draw Mode",
+              "containers": {
+                "automation": {
+                  "parameters": [
+                    {
+                      "value": 658.1519775390625,
+                      "controlAddress": "/length"
+                    },
+                    {
+                      "value": 18.95999908447266,
+                      "controlAddress": "/position"
+                    },
+                    {
+                      "value": 1.937984466552734,
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": [
+                        0.0,
+                        2.0
+                      ],
+                      "controlAddress": "/viewValueRange"
+                    },
+                    {
+                      "value": [
+                        0.0,
+                        2.0
+                      ],
+                      "controlAddress": "/range",
+                      "enabled": true
+                    }
+                  ],
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 23.56152725219727,
+                          "controlAddress": "/position"
+                        },
+                        {
+                          "value": 1.937984466552734,
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": "Bezier",
+                          "controlAddress": "/easingType"
+                        }
+                      ],
+                      "niceName": "Key 1",
+                      "containers": {
+                        "easing": {
+                          "parameters": [
+                            {
+                              "value": [
+                                9.424612045288086,
+                                0.0
+                              ],
+                              "controlAddress": "/anchor1"
+                            },
+                            {
+                              "value": [
+                                -9.424612045288086,
+                                0.0
+                              ],
+                              "controlAddress": "/anchor2"
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Key"
+                    }
+                  ]
+                },
+                "recorder": {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/arm"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/isRecording"
+                    }
+                  ],
+                  "editorIsCollapsed": true
+                },
+                "mapping": {
+                  "niceName": "Mapping",
+                  "type": "Mapping",
+                  "im": {
+                    "items": [
+                      {
+                        "parameters": [
+                          {
+                            "value": "",
+                            "controlAddress": "/inputValue"
+                          }
+                        ],
+                        "niceName": "Input",
+                        "type": "BaseItem"
+                      }
+                    ]
+                  },
+                  "filters": {
+                    "items": [
+                      {
+                        "niceName": "Convert To Integer",
+                        "type": "Convert To Integer",
+                        "filterParams": {
+                          "parameters": [
+                            {
+                              "value": "",
+                              "controlAddress": "/retargetComponent"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "outputs": {
+                    "items": [
+                      {
+                        "niceName": "MappingOutput",
+                        "type": "BaseItem",
+                        "commandModule": "oscOut",
+                        "commandPath": "",
+                        "commandType": "Custom Message",
+                        "command": {
+                          "parameters": [
+                            {
+                              "value": "/meshMode",
+                              "controlAddress": "/address"
+                            }
+                          ],
+                          "argManager": {
+                            "items": [
+                              {
+                                "parameters": [
+                                  {
+                                    "value": true,
+                                    "controlAddress": "/useForMapping"
+                                  }
+                                ],
+                                "niceName": "#1",
+                                "type": "Integer",
+                                "param": {
+                                  "value": 2,
+                                  "hexMode": false,
+                                  "controlAddress": "/sequences/sequence/layers/meshDrawMode/mapping/outputs/mappingOutput/command/arguments/_1/_1"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "type": "Mapping"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/enveloppe"
+                },
+                {
+                  "value": false,
+                  "controlAddress": "/arm"
+                }
+              ],
+              "niceName": "Narration 1",
+              "type": "Audio",
+              "clips": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/startTime"
+                      },
+                      {
+                        "value": false,
+                        "controlAddress": "/isActive"
+                      },
+                      {
+                        "value": "C:/Users/MediaPC3/Documents/openFrameworks/apps/synk/synk_shader_development_start_subsidie/Timeline media/synk_script_record_draft_1_Processed_Mix.mp3",
+                        "controlAddress": "/filePath"
+                      }
+                    ],
+                    "niceName": "AudioClip",
+                    "editorIsCollapsed": true,
+                    "type": "AudioClip"
+                  }
+                ]
+              },
+              "channels": {
+                "parameters": [
+                  {
+                    "value": true,
+                    "controlAddress": "/channelOutLeft"
+                  },
+                  {
+                    "value": true,
+                    "controlAddress": "/channelOutRight"
+                  }
+                ]
+              },
+              "audioModule": "soundCard"
+            },
+            {
+              "parameters": [
+                {
+                  "value": 0.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 28,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": 0.1803278923034668,
+                  "controlAddress": "/volume"
+                },
+                {
+                  "value": 0.0,
+                  "controlAddress": "/enveloppe"
+                },
+                {
+                  "value": false,
+                  "controlAddress": "/arm"
+                }
+              ],
+              "niceName": "Music",
+              "type": "Audio",
+              "clips": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/startTime"
+                      },
+                      {
+                        "value": false,
+                        "controlAddress": "/isActive"
+                      },
+                      {
+                        "value": "C:/Users/MediaPC3/Documents/openFrameworks/apps/synk/synk_shader_development_start_subsidie/Timeline media/03 Pyramid.mp3",
+                        "controlAddress": "/filePath"
+                      }
+                    ],
+                    "niceName": "AudioClip",
+                    "editorIsCollapsed": true,
+                    "type": "AudioClip"
+                  }
+                ]
+              },
+              "channels": {
+                "parameters": [
+                  {
+                    "value": true,
+                    "controlAddress": "/channelOutLeft"
+                  },
+                  {
+                    "value": true,
+                    "controlAddress": "/channelOutRight"
+                  }
+                ]
+              },
+              "audioModule": "soundCard"
+            }
+          ]
+        },
+        "cues": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 592.0718994140625,
+                  "controlAddress": "/time"
+                }
+              ],
+              "niceName": "Cue",
+              "type": "BaseItem"
+            }
+          ]
+        },
+        "editing": true
+      }
+    ]
+  },
+  "routers": {
+    "items": [
+      {
+        "niceName": "Router",
+        "type": "BaseItem"
+      }
+    ]
+  }
+}
