@@ -7,6 +7,7 @@ void ofApp::setup(){
     panel.setup("Controls", "settings.xml");
 	panel.add(useSceneShader.set("Scene shader", true));
 	panel.add(useTexShader.set("Texture shader", true));
+	panel.add(nPasses.set("Shader passes", 2, 0, 5));
     panel.add(drawAxis.set("Draw Axis", false));
 	panel.add(openClDevice.set("openCL Device", 2,0,3));
 	panel.add(OSCPort.set("OSC Port", 1234, 1000, 20000));
@@ -18,14 +19,31 @@ void ofApp::setup(){
     std::vector <ofxKinectV2::KinectDeviceInfo> deviceList = tmp.getDeviceList();
     if (deviceList.size()>0) {
         kinect = std::make_shared<ofxKinectV2>();
-        kinect->open(deviceList[0].serial, ofProtonect::PacketPipelineType::OPENCL, 2, true, true, true, true, true, true, true);
+        kinect->open(deviceList[0].serial, ofProtonect::PacketPipelineType::OPENCL, 0, true, true, true, true, true, true, true);
         panel.add(kinect->params);
         hasKinect = true;
     }
-    else{
-        hasKinect = false;
-    }
-    
+	else {
+		hasKinect = false;
+		width = 1280;
+		height = 720;
+		//grabber.setDeviceID(2);
+		grabber.initGrabber(width, height);
+		//grabber.listDevices();
+		float planeScale = 1.0;
+		int planeWidth = width * planeScale;
+		int planeHeight = height * planeScale;
+		int planeGridSize = 5;
+		int planeColums = planeWidth / planeGridSize;
+		int planeRows = planeHeight / planeGridSize;
+
+		plane.set(planeWidth, planeHeight, planeColums, planeRows);
+
+		plane.resizeToTexture(grabber.getTexture(), 1.0);
+		plane.mapTexCoordsFromTexture(grabber.getTexture());
+
+	}
+
 	shaderControls.setup("Shader Controls", "shaderControls.xml");
 
 	sceneShaderPanelMode.setName("Scene shader mode");
@@ -91,22 +109,39 @@ void ofApp::setup(){
 
 	finalShader.load("shaders/sceneShader.vert", "shaders/sceneShader.frag");
 	texShader.load("shaders/texShader.vert", "shaders/texShader.frag");
+	if (hasKinect) {
+		texShaderFboPing.allocate(512, 424, GL_RGBA);
+		texShaderFboPong.allocate(512, 424, GL_RGBA);
+		//output.allocate(512, 424, GL_RGBA);
+		//pingPong.allocate(512, 424, GL_RGBA);
+	}
 
-	texShaderFboPing.allocate(512, 424, GL_RGBA);
-	texShaderFboPong.allocate(512, 424, GL_RGBA);
+	else {
+		texShaderFboPing.allocate(width, height, GL_RGBA);
+		texShaderFboPong.allocate(width, height, GL_RGBA);
+		//output.allocate(width, height, GL_RGBA);
+		//pingPong.allocate(width, height, GL_RGBA);
+	}
+	
 
 	
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
-    if(hasKinect){
-        kinect->update();
-		kinect->setPointCloudTransformationMatrix(matrixControls.getDrawMatrix());
-        if (kinect->isFrameNew())
-        {
-        texRGBRegistered.loadData(kinect->getRegisteredPixels());
+	if (hasKinect) {
+		kinect->update();
+
+		if (kinect->isFrameNew())
+		{
+			texRGBRegistered.loadData(kinect->getRegisteredPixels());
+			kinect->setPointCloudTransformationMatrix(matrixControls.getDrawMatrix());
+		}
+	}
+	else {
+		grabber.update();
+	}
+ 
 
 		if (useTexShader)
 		{
@@ -122,12 +157,17 @@ void ofApp::update(){
 			for (int i = 0; i < 6; i++) {
 				texShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragTexture[i]);
 			}
-			texRGBRegistered.draw(0, 0);
+			if (hasKinect) {
+				texRGBRegistered.draw(0, 0);
+			}
+			else {
+				grabber.draw(0, 0);
+			}
 			texShader.end();
 			texShaderFboPing.end();
 		}
-        }
-    }
+        
+    
     
 	
 	while (receiver.hasWaitingMessages()) {
@@ -140,6 +180,9 @@ void ofApp::update(){
 		}
 
 		if (m.getAddress() == "/sceneShaderMode") {
+			sceneShaderMode = m.getArgAsInt(0);
+		}
+		if (m.getAddress() == "/meshMode") {
 			sceneShaderMode = m.getArgAsInt(0);
 		}
 		for (int i = 0; i < 6; i++)
@@ -221,7 +264,37 @@ void ofApp::draw(){
 			texRGBRegistered.unbind();
 		}
     }
-    
+	if (!hasKinect) {
+		if (useTexShader)
+		{
+			texShaderFboPing.getTexture().bind();
+		}
+		else {
+			grabber.getTexture().bind();
+		}
+
+		switch (drawMode)
+		{
+		case 0:
+			plane.getMesh().draw();
+			break;
+		case 1:
+			plane.getMesh().drawWireframe();
+			break;
+		case 2:
+			plane.getMesh().drawVertices();
+			break;
+		}
+
+		if (useTexShader)
+		{
+			texShaderFboPing.getTexture().unbind();
+
+		}
+		else {
+			grabber.getTexture().unbind();
+		}
+	}
     
     if (useSceneShader) {
 		finalShader.end();

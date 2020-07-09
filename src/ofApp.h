@@ -38,6 +38,7 @@ class ofApp : public ofBaseApp{
     
 	ofParameter<bool> useSceneShader;
 	ofParameter<bool> useTexShader;
+	ofParameter<int> nPasses;
 	ofParameterGroup sceneShaderPanelVert;
 	ofParameterGroup sceneShaderPanelFrag;
 	ofParameterGroup sceneShaderPanelMode;
@@ -77,5 +78,11 @@ class ofApp : public ofBaseApp{
 
 	matrixManipulator matrixControls;
 	ofxPanel matrixPanel;
+
+	// if there is no kinect
+
+	ofPlanePrimitive plane;
+	ofVideoGrabber grabber;
+	ofMesh planeMesh;
 
 };
