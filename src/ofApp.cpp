@@ -1,32 +1,49 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
-    
+void ofApp::setup() {
 
-    panel.setup("Controls", "settings.xml");
+
+	panel.setup("Controls", "settings.xml");
 	panel.add(useSceneShader.set("Scene shader", true));
 	panel.add(useTexShader.set("Texture shader", true));
 	panel.add(nPasses.set("Shader passes", 2, 0, 5));
-    panel.add(drawAxis.set("Draw Axis", false));
-	panel.add(openClDevice.set("openCL Device", 2,0,3));
+	panel.add(drawAxis.set("Draw Axis", false));
+	panel.add(openClDevice.set("openCL Device", 2, 0, 3));
 	panel.add(OSCPort.set("OSC Port", 1234, 1000, 20000));
 	panel.add(drawMode.set("draw mode", 0, 0, 2));
-    panel.loadFromFile("settings.xml");
+	panel.loadFromFile("settings.xml");
 
 
-    ofxKinectV2 tmp;
-    std::vector <ofxKinectV2::KinectDeviceInfo> deviceList = tmp.getDeviceList();
-    if (deviceList.size()>0) {
-        kinect = std::make_shared<ofxKinectV2>();
-        kinect->open(deviceList[0].serial, ofProtonect::PacketPipelineType::OPENCL, 2, true, true, true, true, true, true, true);
-        panel.add(kinect->params);
-        hasKinect = true;
-    }
-    else{
-        hasKinect = false;
-    }
-    
+	ofxKinectV2 tmp;
+	std::vector <ofxKinectV2::KinectDeviceInfo> deviceList = tmp.getDeviceList();
+	if (deviceList.size() > 0) {
+		kinect = std::make_shared<ofxKinectV2>();
+		kinect->open(deviceList[0].serial, ofProtonect::PacketPipelineType::OPENCL, 2, true, true, true, true, true, true, true);
+		panel.add(kinect->params);
+		hasKinect = true;
+	}
+	else {
+		hasKinect = false;
+		width = 1280;
+		height = 720;
+		//grabber.setDeviceID(2);
+		grabber.initGrabber(width, height);
+		//grabber.listDevices();
+		float planeScale = 1.0;
+		int planeWidth = width * planeScale;
+		int planeHeight = height * planeScale;
+		int planeGridSize = 5;
+		int planeColums = planeWidth / planeGridSize;
+		int planeRows = planeHeight / planeGridSize;
+
+		plane.set(planeWidth, planeHeight, planeColums, planeRows);
+
+		plane.resizeToTexture(grabber.getTexture(), 1.0);
+		plane.mapTexCoordsFromTexture(grabber.getTexture());
+
+	}
+
 	shaderControls.setup("Shader Controls", "shaderControls.xml");
 
 	sceneShaderPanelMode.setName("Scene shader mode");
@@ -83,8 +100,8 @@ void ofApp::setup(){
 	matrixPanel.loadFromFile("manipulations.xml");
 	matrixPanel.setPosition(shaderControls.getPosition().x + shaderControls.getWidth() + 20, shaderControls.getPosition().y);
 
-    cam.setFarClip(100000);
-    //cam.setNearClip(-100);
+	cam.setFarClip(100000);
+	//cam.setNearClip(-100);
 	//cam.setDistance(-100);
 
 	cout << "listening for osc messages on port " << OSCPort << "\n";
@@ -93,61 +110,81 @@ void ofApp::setup(){
 	finalShader.load("shaders/sceneShader.vert", "shaders/sceneShader.frag");
 	texShader.load("shaders/texShader.vert", "shaders/texShader.frag");
 
-	
-	output.allocate(512, 424, GL_RGBA);
-	pingPong.allocate(512, 424, GL_RGBA);
-	
+	if (hasKinect) {
+
+		output.allocate(512, 424, GL_RGBA);
+		pingPong.allocate(512, 424, GL_RGBA);
+	}
+
+	else {
+
+		output.allocate(width, height, GL_RGBA);
+		pingPong.allocate(width, height, GL_RGBA);
+	}
+
+
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
-    
-    if(hasKinect){
-        kinect->update();
-		kinect->setPointCloudTransformationMatrix(matrixControls.getDrawMatrix());
-        if (kinect->isFrameNew())
-        {
-        texRGBRegistered.loadData(kinect->getRegisteredPixels());
+void ofApp::update() {
+	if (hasKinect) {
+		kinect->update();
 
-		if (useTexShader)
+		if (kinect->isFrameNew())
 		{
-			pingPong.clear();
-			pingPong.src->begin();
-			texRGBRegistered.draw(0, 0);
-			pingPong.src->end();
-
-			
-
-			for (int i = 0; i < nPasses; i++) {
-				pingPong.dst->begin();
-				texShader.begin();
-				texShader.setUniformTexture("prevTexture", pingPong.src->getTexture(), 0);
-				texShader.setUniformTexture("tex0", output.getTexture(), 1);
-				texShader.setUniform1i("mode", texShaderMode);
-				texShader.setUniform1f("time", ofGetElapsedTimef());
-				for (int i = 0; i < 6; i++) {
-					texShader.setUniform1f("FloatVert" + ofToString(i + 1), floatsVertTexture[i]);
-				}
-
-				for (int i = 0; i < 6; i++) {
-					texShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragTexture[i]);
-				}
-				pingPong.src->draw(0, 0); // draw the source texture here!!!
-				texShader.end();
-				pingPong.dst->end();
-				pingPong.swap();
-			}
-			pingPong.swap();
-
-			output.begin();
-			ofClear(0, 0, 0, 0);
-			pingPong.src->getTexture().draw(0, 0);
-			output.end();
+			texRGBRegistered.loadData(kinect->getRegisteredPixels());
+			kinect->setPointCloudTransformationMatrix(matrixControls.getDrawMatrix());
 		}
-        }
-    }
-    
-	
+	}
+	else {
+		grabber.update();
+	}
+
+
+	if (useTexShader)
+	{
+		pingPong.clear();
+		pingPong.src->begin();
+		if (hasKinect) {
+			texRGBRegistered.draw(0, 0);
+		}
+		else {
+			grabber.draw(0, 0);
+		}
+		pingPong.src->end();
+
+
+
+		for (int i = 0; i < nPasses; i++) {
+			pingPong.dst->begin();
+			texShader.begin();
+			texShader.setUniformTexture("prevTexture", pingPong.src->getTexture(), 0);
+			texShader.setUniformTexture("tex0", output.getTexture(), 1);
+			texShader.setUniform1i("mode", texShaderMode);
+			texShader.setUniform1f("time", ofGetElapsedTimef());
+			for (int i = 0; i < 6; i++) {
+				texShader.setUniform1f("FloatVert" + ofToString(i + 1), floatsVertTexture[i]);
+			}
+
+			for (int i = 0; i < 6; i++) {
+				texShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragTexture[i]);
+			}
+			pingPong.src->draw(0, 0); // draw the source texture here!!!
+			texShader.end();
+			pingPong.dst->end();
+			pingPong.swap();
+		}
+		pingPong.swap();
+
+		output.begin();
+		ofClear(0, 0, 0, 0);
+		pingPong.dst->getTexture().draw(0, 0);
+		output.end();
+	}
+
+
+
+
 	while (receiver.hasWaitingMessages()) {
 		// get the next message
 		ofxOscMessage m;
@@ -160,9 +197,12 @@ void ofApp::update(){
 		if (m.getAddress() == "/sceneShaderMode") {
 			sceneShaderMode = m.getArgAsInt(0);
 		}
+		if (m.getAddress() == "/meshMode") {
+			drawMode = m.getArgAsInt(0);
+		}
 		for (int i = 0; i < 6; i++)
 		{
-			if (m.getAddress() == "/floatFragScene/"+ ofToString(i)) {
+			if (m.getAddress() == "/floatFragScene/" + ofToString(i)) {
 				floatsFragScene[i] = m.getArgAsFloat(0);
 			}
 
@@ -179,23 +219,23 @@ void ofApp::update(){
 			}
 		}
 		// check for mouse moved message
-		
 	}
+
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
-    
-    ofEnableDepthTest();
-    
-    cam.begin();
-    if (drawAxis) {
-        ofDrawAxis(100);
-    }
-    
-    ofPushMatrix();
-    if (useSceneShader) {
-        ofMatrix4x4 currentViewProjectionMatrix = cam.getModelViewProjectionMatrix();
+void ofApp::draw() {
+
+	ofEnableDepthTest();
+
+	cam.begin();
+	if (drawAxis) {
+		ofDrawAxis(100);
+	}
+
+	ofPushMatrix();
+	if (useSceneShader) {
+		ofMatrix4x4 currentViewProjectionMatrix = cam.getModelViewProjectionMatrix();
 		finalShader.begin();
 		finalShader.setUniformMatrix4f("matrix", currentViewProjectionMatrix, 1);
 		finalShader.setUniform1i("mode", sceneShaderMode);
@@ -207,106 +247,131 @@ void ofApp::draw(){
 		for (int i = 0; i < 6; i++) {
 			finalShader.setUniform1f("FloatFrag" + ofToString(i + 1), floatsFragScene[i]);
 		}
-    }
-    if (hasKinect) {
+	}
+	
 		if (useTexShader)
 		{
 			pingPong.src->getTexture().bind();
-			
+
 		}
 		else {
-			texRGBRegistered.bind();
+			if (hasKinect) {
+				texRGBRegistered.bind();
+			}
+			else {
+				grabber.getTexture().bind();
+			}
 		}
-        
+
 		switch (drawMode)
 		{
 		case 0:
-			kinect->getPointCloud().draw();
+			if (hasKinect) {
+				kinect->getPointCloud().draw();
+			}
+			else {
+				plane.getMesh().draw();
+			}
 			break;
 		case 1:
-			kinect->getPointCloud().drawWireframe();
+			if (hasKinect) {
+				kinect->getPointCloud().drawWireframe();
+			}
+			else {
+				plane.getMesh().drawWireframe();
+			}
 			break;
 		case 2:
-			kinect->getPointCloud().drawVertices();
+			if (hasKinect) {
+				kinect->getPointCloud().drawVertices();
+			}
+			else {
+				plane.getMesh().drawVertices();
+			}
 			break;
 		}
- 
+
 		if (useTexShader)
 		{
 			pingPong.src->getTexture().unbind();
 
 		}
 		else {
-			texRGBRegistered.unbind();
+			if (hasKinect) {
+				texRGBRegistered.unbind();
+			}
+			else {
+				grabber.getTexture().unbind();
+			}
 		}
-    }
-    
-    
-    if (useSceneShader) {
+	
+
+
+	if (useSceneShader) {
 		finalShader.end();
-    }
-    
-    ofPopMatrix();
-    
-    cam.end();
-    
-    ofDisableDepthTest();
-    
-    panel.draw();
+	}
+
+	ofPopMatrix();
+
+	cam.end();
+
+	ofDisableDepthTest();
+
+	panel.draw();
 	shaderControls.draw();
 	matrixPanel.draw();
 
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-  
-    
-    if (key == 'l') {
+void ofApp::keyPressed(int key) {
+
+
+	if (key == 'l') {
 		finalShader.load("shaders/sceneShader.vert", "shaders/sceneShader.frag");
 		texShader.load("shaders/texShader.vert", "shaders/texShader.frag");
-    }
-    if (key == 'f'){
-        ofToggleFullscreen();
-    }
+	}
+	if (key == 'f') {
+		ofToggleFullscreen();
+	}
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-    
+void ofApp::keyReleased(int key) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y){
-    
+void ofApp::mouseMoved(int x, int y) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-    
+void ofApp::mouseDragged(int x, int y, int button) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-    
+void ofApp::mousePressed(int x, int y, int button) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-    
+void ofApp::mouseReleased(int x, int y, int button) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-    
+void ofApp::windowResized(int w, int h) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-    
+void ofApp::gotMessage(ofMessage msg) {
+
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-    
+void ofApp::dragEvent(ofDragInfo dragInfo) {
+
 }

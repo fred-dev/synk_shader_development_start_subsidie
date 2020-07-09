@@ -115,4 +115,8 @@ class ofApp : public ofBaseApp{
 	matrixManipulator matrixControls;
 	ofxPanel matrixPanel;
 
+	ofPlanePrimitive plane;
+	ofVideoGrabber grabber;
+	ofMesh planeMesh;
+
 };
